@@ -1,0 +1,380 @@
+import telebot
+
+# Conexión con nuestro BOT
+TOKEN = '7426773336:AAHbo5WmFaECvLVF4Nfk891mLtv4RWLScnM'
+bot = telebot.TeleBot(TOKEN)
+
+# Creación de comandos simples como `/start` y `/help`
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+    # Extraer el nombre del usuario
+    user_name = message.from_user.first_name
+    # Responder con un mensaje personalizado
+    bot.reply_to(message, f'Buen día, {user_name}! Soy tu asistente personal del grupo INVENSYS S.A. creado con Telebot. Te ayudaré con tus consultas. En caso de que no te quedes conforme con las respuestas o necesites hablar con un agente de nuestro equipo, escribe: "Necesito hablar con un agente". Por favor, ingresa las consultas todo en minúscula.')
+
+@bot.message_handler(commands=['help'])
+def send_help(message):
+    bot.reply_to(message, 'Te adjunto esta guía para actualizar las preguntas y respuestas futuras, también podrás visualizarlas como preguntar: ')
+
+# Maneja todos los mensajes
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+    # Respuestas específicas basadas en el texto del mensaje
+    #BIENVENIDA Y SALUDOS
+    if message.text.lower() == "hola":
+        bot.reply_to(message, "¡Hola! ¿En que puedo ayudarte?, preguntame en base a la lista que te otorga 'help'")
+    elif message.text.lower() == "¿cómo estás?":
+        bot.reply_to(message, "Estoy bien, gracias por preguntar.")
+    elif message.text.lower() == "adiós":
+        bot.reply_to(message, "¡Hasta luego!")
+    elif message.text.lower() == "necesito hablar con un agente":
+        bot.reply_to(message, "Para hablar con un agente que lo atenderá vía teléfono de forma personal, marque al siguiente número +593 99 687 1797 o escriba un correo electrónico a info@grupoinvensys.com")
+    elif message.text.lower() == "gracias":
+        bot.reply_to(message, "Vuelva pronto")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")    
+    
+    # PREGUNTAS ESPECÍFICAS - VIDEOS
+    elif message.text.lower() == "netio concepto ecuador":
+        bot.reply_to(message, "¡DAMOS SOLUCIONES A SUS NEGOCIOS! nuestra presentación en el siguiente video: https://youtu.be/qboQmsqtz9k")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "netio alarmas comunitarias":
+        bot.reply_to(message, "¿No sabes cómo instalar alarmas comunitarias con equipos NETIO? Visualiza el siguiente video: https://youtu.be/PbpZz32uAZg")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "netio domótica: cómo abrir puertas de garaje":
+        bot.reply_to(message, "¿No sabes cómo abrir puertas de garaje con equipos NETIO? Visualiza el siguiente video: https://youtu.be/riBNYbAEStY")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "netio como descargar programador unico":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/YrieX3WXxt0")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "alimentación del comunicador netio wifi y sus leds indicadores":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/JNO3QRIn50k")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "como programar comunicador netio wifi software unico":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/Hu2wilTr8ZE")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "como programar comunicador netio gprs nt-link 3g/4g con unico":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/ceI0uq54PzU")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "configuración del comunicador estándar netio 4g parte 1":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/k4uoZKZMRJM")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "configuración del comunicador estándar netio 4g parte 2":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/lxqVm5eRBF4")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "netio domótica: configurar botones click manager salidas pmg":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/VYkazjT8JP8")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "netio con dsc parte 1":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/mlUv0gYTwww")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "netio con dsc parte 2":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/ZjTGAdeXkUg")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "netio con dsc parte 3":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/L41Lpu4OC4Q")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "netio con dsc parte 4":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/yjXYiOOVEiw")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "netio domótica: salidas pgm":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/zrEyDDDf--A")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "cómo integrar netio con sistema scorpion y click manager a la vez":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/UbnnyVRc1-4")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "cómo se integró una alarma comunitaria usando netio 4g-2g en guayaquil":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/izHi1Dtrz5o")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "netio + vetti":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/U9LQxk5jHak")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "click manager argentina":
+        bot.reply_to(message, "Visualiza el siguiente video para Argentina: https://www.youtube.com/playlist?list=PL9b8g4bpxSReWFHjkiNK2DNgRJI39Cxly")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "beat argentina":
+        bot.reply_to(message, "Visualiza el siguiente video para Argentina: https://www.youtube.com/playlist?list=PL9b8g4bpxSRegOIjBrTRKQUDWcPOADIK-")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "netio configuraciones ecuador":
+        bot.reply_to(message, "¿Quieres saber como configurar los equipos Netio de Ecuador, visualiza el siguiente video: https://www.youtube.com/playlist?list=PLiH5HtVypGGAGB1Fn5lDvtcsBgzW6k5GN")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "configurar nt 3g con unico colombia":
+        bot.reply_to(message, "Visualiza el siguiente video para Colombia: https://youtu.be/qkYHaCzlBEw")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "configurar nt wifi con unico colombia":
+        bot.reply_to(message, "Visualiza el siguiente video para Colombia: https://youtu.be/gfOISMmszew")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "actualizar firmware con beat argentina":
+        bot.reply_to(message, "Visualiza el siguiente video para Argentina: https://youtu.be/zJ7ADBowt9k")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "introduccion beat argentina":
+        bot.reply_to(message, "Introducción a BEAT para Argentina NT: https://youtu.be/cGcjUjxAtoQ")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "agregar equipo a beat argentina":
+        bot.reply_to(message, "Visualiza el siguiente video para saber como agregar un equipo a BEAT para Argentina NT: https://youtu.be/9DuvtwWJBfk")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "webinar de como configurar netio unico":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/6uatRYXEZgo")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "como poner el skin en click manager":
+        bot.reply_to(message, "Visualiza el siguiente video para saber como poner el skin -logo- en click manager: https://youtu.be/BPTeLuMy7IU")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "particiones click":
+        bot.reply_to(message, "Visualiza el siguiente video: https://youtu.be/mMYRnN4nbec")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "beat":
+        bot.reply_to(message, "Visualiza los siguientes videos: (Parte 1:https://youtu.be/cGcjUjxAtoQ) , (Parte 2:https://youtu.be/9DuvtwWJBfk) y (Parte 3:https://youtu.be/zJ7ADBowt9k)")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    
+    #MANUALES
+    elif message.text.lower() == "manual de nt-link 3g":
+        bot.reply_to(message, "Manual de Uso: Comunicador dedicado TCP: https://drive.google.com/file/d/14xFgiBxLbLPSodZpYv1EzIsHAlQ1ZmhP/view?usp=sharing")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "manual de nt-link 4g":
+        bot.reply_to(message, "Manual de Uso: Comunicador dedicado TCP: https://drive.google.com/file/d/14xFgiBxLbLPSodZpYv1EzIsHAlQ1ZmhP/view?usp=sharing")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "manual de nt-link 5g":
+        bot.reply_to(message, "Manual de Uso: Comunicador dedicado TCP: https://drive.google.com/file/d/14xFgiBxLbLPSodZpYv1EzIsHAlQ1ZmhP/view?usp=sharing")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "manual comunicador universal TCP":
+        bot.reply_to(message, "Manual de Uso: Comunicador universal TCP: https://drive.google.com/file/d/1T8Hd2nkXKNBUUaVMz2Yk03T_ZhI0qUJ2/view?usp=sharing")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "manual nt-com 2 4g":
+        bot.reply_to(message, "Manual de Uso: Comunicador universal TCP: https://drive.google.com/file/d/1T8Hd2nkXKNBUUaVMz2Yk03T_ZhI0qUJ2/view?usp=sharing")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "manual nt-com 3 4g":
+        bot.reply_to(message, "Manual de Uso: Comunicador universal TCP: https://drive.google.com/file/d/1T8Hd2nkXKNBUUaVMz2Yk03T_ZhI0qUJ2/view?usp=sharing")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "manual comunicador wifi":
+        bot.reply_to(message, "Manual de Uso: Comunicador wifi WIFI APP: https://drive.google.com/file/d/1kB-O6AWmP5wsVajkOHbJEzqSaDQx6fmo/view?usp=sharing")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "manual click manager":
+        bot.reply_to(message, "Manual de Uso: Click Manager: https://drive.google.com/file/d/1Ql9vgYttSa-XrNJdvz2AvU1dGGqOE-UL/view?usp=sharing")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "manual app click":
+        bot.reply_to(message, "Manual de Uso: App Click: https://drive.google.com/file/d/1sm1OFaJw1-8k-v-ixAPJmY9u1tuvxKhV/view?usp=sharing")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "plataforma de gestion tecnica":
+        bot.reply_to(message, "Manual de Uso: Plataforma de gestion tecnica: https://drive.google.com/file/d/1zzR3ZJFVnAmjDKUzEn5uAoQ3ORTYU_Dz/view?usp=sharing")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "programadores y drivers":
+        bot.reply_to(message, "Link: https://drive.google.com/drive/folders/1UbsbN6YTp6o_3W5nstrkcCqvun1EZroq?usp=sharing")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    
+     #VIDEOS YOU TUBE
+    # Preguntas de la playlist "Alarmas TEKO"
+    elif message.text.lower() == "¿qué características de seguridad destacan en las alarmas teko?":
+        bot.reply_to(message, "Las alarmas TEKO destacan por su tecnología avanzada que incluye detección de intrusos, sensores de movimiento, y sistemas de alerta que pueden ser monitoreados de manera remota a través de aplicaciones móviles.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se realiza la instalación básica de una alarma teko?":
+        bot.reply_to(message, "La instalación básica de una alarma TEKO implica colocar los sensores en puntos estratégicos del hogar, conectar el panel de control a la red eléctrica, y configurar la conexión a la red para su monitoreo a través de una aplicación móvil.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cuáles son los beneficios de usar alarmas teko en hogares?":
+        bot.reply_to(message, "El uso de alarmas TEKO en hogares proporciona una capa adicional de seguridad, permite el monitoreo remoto, y ofrece alertas instantáneas en caso de intrusiones, lo que incrementa la protección y tranquilidad del hogar.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+
+    # Preguntas de la playlist "N4Z Monitoreo.com ECUADOR"
+    elif message.text.lower() == "¿cómo funciona el sistema de monitoreo n4z en tiempo real?":
+        bot.reply_to(message, "El sistema N4Z Monitoreo funciona en tiempo real utilizando tecnología de geolocalización y redes de comunicación que permiten supervisar de manera continua y precisa la ubicación y estado de los activos monitoreados.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿qué dispositivos son compatibles con el sistema n4z?":
+        bot.reply_to(message, "El sistema N4Z es compatible con una amplia gama de dispositivos, incluidos rastreadores GPS, cámaras de seguridad, y sensores de diferentes tipos que se integran en una única plataforma de monitoreo.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se configura una cuenta de usuario en n4z monitoreo?":
+        bot.reply_to(message, "Para configurar una cuenta de usuario en N4Z Monitoreo, es necesario registrarse en la plataforma, seguir las indicaciones para la configuración de dispositivos y personalizar las opciones de monitoreo según las necesidades específicas del usuario.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cuáles son las ventajas del monitoreo remoto con n4z?":
+        bot.reply_to(message, "El monitoreo remoto con N4Z ofrece ventajas como la capacidad de supervisar activos desde cualquier lugar, recibir alertas inmediatas, y acceder a reportes detallados, lo que mejora la seguridad y el control.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿qué protocolos de seguridad implementa n4z?":
+        bot.reply_to(message, "N4Z implementa protocolos de seguridad avanzados, incluyendo cifrado de datos, autenticación de usuarios, y conexiones seguras para garantizar la integridad y confidencialidad de la información monitoreada.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se realiza el mantenimiento del sistema n4z?":
+        bot.reply_to(message, "El mantenimiento del sistema N4Z incluye actualizaciones de software periódicas, revisión de la conectividad de los dispositivos, y pruebas regulares de los sistemas de alerta y notificación para asegurar su correcto funcionamiento.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+
+    # Preguntas de la playlist "Alarmas VETTI"
+    elif message.text.lower() == "¿qué ventajas ofrecen las alarmas vetti respecto a otros sistemas?":
+        bot.reply_to(message, "Las alarmas VETTI ofrecen ventajas como una mayor personalización de la configuración, integración con otros sistemas de seguridad, y la capacidad de recibir notificaciones en tiempo real en dispositivos móviles.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se instalan las alarmas vetti en una oficina?":
+        bot.reply_to(message, "La instalación de las alarmas VETTI en una oficina implica colocar sensores en áreas clave, conectar el sistema a la red de la oficina, y configurar las alertas para ser enviadas al personal responsable a través de una aplicación.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cuáles son los pasos para activar una alarma vetti?":
+        bot.reply_to(message, "Para activar una alarma VETTI, se debe ingresar un código de seguridad en el panel de control o a través de la aplicación móvil, y verificar que todos los sensores estén operativos y conectados.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿qué tipos de alertas puede enviar una alarma vetti?":
+        bot.reply_to(message, "Las alarmas VETTI pueden enviar diferentes tipos de alertas, incluyendo notificaciones de intrusión, detección de movimiento, y alertas de emergencia a dispositivos móviles y correos electrónicos preconfigurados.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se gestiona la configuración de zonas en las alarmas vetti?":
+        bot.reply_to(message, "La configuración de zonas en las alarmas VETTI se gestiona a través del panel de control, donde se pueden definir diferentes áreas de vigilancia y personalizar las alertas para cada zona según las necesidades de seguridad.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+
+    # Preguntas de la playlist "Mi Alarma Seguridad entre vecinos"
+    elif message.text.lower() == "¿cómo se organiza una red de vecinos con el sistema de seguridad de mi alarma?":
+        bot.reply_to(message, "Una red de vecinos con el sistema 'Mi Alarma' se organiza creando un grupo en la plataforma donde cada vecino puede monitorear y recibir alertas de seguridad compartidas, facilitando la colaboración y respuesta rápida ante incidentes.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿qué medidas adicionales se recomiendan al usar mi alarma en la comunidad?":
+        bot.reply_to(message, "Se recomienda establecer protocolos de respuesta entre los vecinos, realizar simulacros periódicos, y mantener una comunicación constante para garantizar que todos estén al tanto de las funciones y alertas del sistema.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se comunica el sistema mi alarma con los dispositivos de los vecinos?":
+        bot.reply_to(message, "El sistema 'Mi Alarma' se comunica con los dispositivos de los vecinos mediante notificaciones en la aplicación móvil, SMS, o correos electrónicos, alertando sobre cualquier evento de seguridad relevante.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+
+    # Preguntas de la playlist "NETIO ECUADOR"
+    elif message.text.lower() == "¿qué es netio y cómo se integra con otros sistemas de seguridad?":
+        bot.reply_to(message, "NETIO es una plataforma de gestión y monitoreo de seguridad que se integra con otros sistemas mediante APIs, permitiendo una supervisión centralizada y la automatización de procesos de seguridad.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cuáles son las principales funciones del sistema netio?":
+        bot.reply_to(message, "Las principales funciones de NETIO incluyen monitoreo de dispositivos de seguridad, control de acceso, notificaciones en tiempo real, y generación de reportes detallados sobre eventos de seguridad.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se configura la red de dispositivos en netio?":
+        bot.reply_to(message, "La red de dispositivos en NETIO se configura añadiendo cada dispositivo a la plataforma, asignándole una ubicación y estableciendo las reglas de monitoreo y alertas según las necesidades del usuario.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿qué tipos de alertas se pueden recibir con netio?":
+        bot.reply_to(message, "Con NETIO se pueden recibir alertas de intrusión, fallos de dispositivos, accesos no autorizados, y cualquier evento predefinido que requiera la atención del usuario.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo netio mejora la eficiencia en el monitoreo de seguridad?":
+        bot.reply_to(message, "NETIO mejora la eficiencia en el monitoreo al centralizar la gestión de múltiples dispositivos, automatizar las respuestas a eventos de seguridad, y proporcionar herramientas de análisis y reportes en tiempo real.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se realiza la instalación básica de netio?":
+        bot.reply_to(message, "La instalación básica de NETIO incluye conectar los dispositivos a la red, configurar la plataforma según los requisitos del usuario, y realizar pruebas para asegurar que todos los sistemas funcionen correctamente.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cuáles son los principales beneficios de usar netio en un entorno empresarial?":
+        bot.reply_to(message, "Los principales beneficios de usar NETIO en un entorno empresarial incluyen la mejora en la seguridad, la optimización de recursos, y la capacidad de gestionar múltiples ubicaciones desde una plataforma centralizada.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿qué dispositivos son compatibles con netio?":
+        bot.reply_to(message, "NETIO es compatible con una amplia variedad de dispositivos de seguridad, como cámaras, sensores, y controles de acceso, que pueden ser integrados en la plataforma para un monitoreo eficiente.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se maneja la seguridad de la red en netio?":
+        bot.reply_to(message, "La seguridad de la red en NETIO se maneja mediante el uso de cifrado de datos, autenticación de usuarios, y la implementación de políticas de acceso seguro para proteger la información y los dispositivos conectados.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿qué características diferencian a netio de otros sistemas?":
+        bot.reply_to(message, "NETIO se diferencia por su integración avanzada, la capacidad de personalización, y su interfaz intuitiva que facilita la gestión y el monitoreo de múltiples dispositivos en tiempo real.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo netio facilita la gestión remota de la seguridad?":
+        bot.reply_to(message, "NETIO facilita la gestión remota permitiendo el acceso a la plataforma desde cualquier dispositivo con conexión a internet, donde los usuarios pueden supervisar y controlar sus sistemas de seguridad en tiempo real.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cuáles son las funciones avanzadas que ofrece netio?":
+        bot.reply_to(message, "Las funciones avanzadas de NETIO incluyen la automatización de respuestas a eventos, la integración con sistemas de inteligencia artificial, y la capacidad de generar reportes personalizados.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿qué protocolos de comunicación utiliza netio?":
+        bot.reply_to(message, "NETIO utiliza protocolos de comunicación seguros y estándar, como TCP/IP, para garantizar la transmisión confiable y segura de datos entre los dispositivos y la plataforma central.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se actualiza el software de netio?":
+        bot.reply_to(message, "El software de NETIO se actualiza mediante parches y nuevas versiones que se pueden descargar desde la plataforma, asegurando que el sistema esté siempre protegido y funcionando con las últimas características.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿qué roles pueden configurarse en el sistema netio?":
+        bot.reply_to(message, "En NETIO se pueden configurar roles como administrador, supervisor, y usuario, cada uno con permisos específicos para acceder y gestionar diferentes aspectos de la plataforma de seguridad.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se integran las cámaras de seguridad con netio?":
+        bot.reply_to(message, "Las cámaras de seguridad se integran con NETIO mediante la configuración de las mismas en la plataforma, asignando las cámaras a ubicaciones específicas y estableciendo las reglas de monitoreo y grabación.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo netio asegura la protección de datos en el sistema?":
+        bot.reply_to(message, "NETIO asegura la protección de datos mediante cifrado, autenticación segura, y la implementación de políticas de privacidad que protegen la información tanto en tránsito como en reposo.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cuáles son las recomendaciones para mantener el sistema netio funcionando de manera óptima?":
+        bot.reply_to(message, "Para mantener el sistema NETIO funcionando de manera óptima, se recomienda realizar actualizaciones periódicas, revisar la conectividad de los dispositivos, y ejecutar pruebas de seguridad para identificar y solucionar posibles vulnerabilidades.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+
+    # Preguntas de la playlist "Gestión Flotas PYMES"
+    elif message.text.lower() == "¿cómo ayuda el sistema de gestión de flotas a las pymes?":
+        bot.reply_to(message, "El sistema de gestión de flotas ayuda a las PYMES optimizando la administración de vehículos, mejorando la eficiencia operativa, reduciendo costos, y proporcionando herramientas para el seguimiento en tiempo real y la planificación de rutas.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿qué características tiene el software de gestión de flotas?":
+        bot.reply_to(message, "El software de gestión de flotas ofrece características como seguimiento en tiempo real de vehículos, alertas de mantenimiento, reportes de uso de combustible, y planificación de rutas para optimizar las operaciones.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se realiza el seguimiento de vehículos en tiempo real?":
+        bot.reply_to(message, "El seguimiento de vehículos en tiempo real se realiza mediante el uso de dispositivos GPS instalados en los vehículos, que transmiten su ubicación y otros datos relevantes a la plataforma de gestión de flotas, permitiendo a los administradores monitorear la flota desde cualquier lugar.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+
+    # Preguntas de la playlist "Sistema de Gestión y Administración de Flotas para PYMES"
+    elif message.text.lower() == "¿qué es el sistema de gestión de flotas y cómo beneficia a las pymes?":
+        bot.reply_to(message, "El sistema de gestión de flotas es una herramienta que permite a las PYMES gestionar sus vehículos de manera eficiente, optimizando el uso de recursos, reduciendo costos operativos, y mejorando la productividad mediante el monitoreo y control de la flota en tiempo real.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cuáles son las funcionalidades clave del sistema de administración de flotas?":
+        bot.reply_to(message, "Las funcionalidades clave del sistema de administración de flotas incluyen seguimiento en tiempo real, alertas de mantenimiento, análisis de uso de combustible, planificación de rutas, y generación de reportes de rendimiento de la flota.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se configura el sistema de gestión de flotas?":
+        bot.reply_to(message, "La configuración del sistema de gestión de flotas se realiza mediante la instalación de dispositivos GPS en los vehículos, la integración de los datos en la plataforma de gestión, y la personalización de alertas y reportes según las necesidades del usuario.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿qué ventajas ofrece la automatización en la gestión de flotas?":
+        bot.reply_to(message, "La automatización en la gestión de flotas ofrece ventajas como la reducción de errores humanos, el ahorro de tiempo en la generación de reportes, la mejora en la eficiencia operativa, y una mejor planificación y asignación de recursos.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se realiza la actualización de datos en el sistema de flotas?":
+        bot.reply_to(message, "La actualización de datos en el sistema de flotas se realiza de manera automática mediante la transmisión de datos en tiempo real desde los vehículos a la plataforma, asegurando que la información esté siempre actualizada y disponible para la toma de decisiones.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿qué roles pueden configurarse en el sistema de administración de flotas?":
+        bot.reply_to(message, "En el sistema de administración de flotas se pueden configurar roles como administrador, operador de flota, y conductor, cada uno con permisos específicos para acceder y gestionar diferentes aspectos del sistema.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "¿cómo se asegura la integridad de los datos en el sistema de flotas?":
+        bot.reply_to(message, "La integridad de los datos en el sistema de flotas se asegura mediante el uso de cifrado, autenticación segura, y la implementación de políticas de acceso y protección de datos que garantizan la seguridad de la información almacenada y transmitida.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    
+    #MAS MANUALES
+    elif message.text.lower() == "uso de click manager":
+        bot.reply_to(message, "Acontinuacion la lista de reproducción: https://www.youtube.com/playlist?list=PL9b8g4bpxSReWFHjkiNK2DNgRJI39Cxly")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "configuracion equipos monitoreados":
+        bot.reply_to(message, "Guía rápida de configuración paso a paso desde cero (para equipos monitoreados): https://drive.google.com/file/d/1MkKtYflpQSP_iRQsf_ZJ8nuHmw_qjjPc/view")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "configuracion automonitoreo con app":
+        bot.reply_to(message, "Guía rápida de configuración paso a paso desde cero (uso residencial/automonnitoreo con app): https://drive.google.com/file/d/1hpROPrynxdUOkuvnXlEfxoiDTOkai0w1/edit")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "comandos remotos":
+        bot.reply_to(message, "Listado de comandos remotos para las diferentes marcas de panel y salidas de los comunicadores: https://drive.google.com/file/d/1K5JJ3R6asVmCUjgAVdsp-dNDeJGRYnPQ/edit")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "alarmas particionadas":
+        bot.reply_to(message, "Cómo configurar click para trabajar con más de una partición: https://drive.google.com/file/d/1k1--BYqkQ_VBaFKGWFNT_2IpOIv7Ot06/view")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "comando de salidas":
+        bot.reply_to(message, "Cómo configurar comandos de click para manipular las salidas del comunicador desde la app: https://drive.google.com/file/d/1wItzpxHmwLglwSMmNrusExoJd2NHwWEw/view")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "comando anular zona":
+        bot.reply_to(message, "Cómo configurar comandos de click para poder anular zonas desde la app: https://drive.google.com/file/d/1KAdOaIu9rShoil902YE9NPctDKFJ2FD-/view")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "toolkit":
+        bot.reply_to(message, "Plataforma de gestión de grupos operativos del servidor Click para distribuidores mayoristas: https://drive.google.com/file/d/1fxPSL8Dq7dS2DxW0UqN4ZeoMwvHrDq9i/edit")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "beat":
+        bot.reply_to(message, "Plataforma de gestión técnica de los comunicadores: https://drive.google.com/file/d/1kjQ8pYpVZnSqfxgQX0o3h3eEZPPPxgrO/edit")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "videos beat":
+        bot.reply_to(message, "Videos de referencia de uso de la plataforma BEAT: https://www.youtube.com/playlist?list=PL9b8g4bpxSRegOIjBrTRKQUDWcPOADIK-")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "firmware con cable":
+        bot.reply_to(message, "Actualización de firmware con cable de programación: https://drive.google.com/file/d/1VbyMIkzvaVeMxSlmFOyLHTPMNcILN0I4/edit")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "unico":
+        bot.reply_to(message, " Instructivo de instalación software de programación UniCo (PC): https://drive.google.com/file/d/1NJwog2cvpGigWNXmmmChpvZT1g7lLK6p/edit y Manual de programación con UniCo BT (Android): https://drive.google.com/file/d/19M-spLZMojrvTD_g5jmDoT-viVpI2XFl/edit")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "comunicadores con click":
+        bot.reply_to(message, "NT-Link G/3G/4G Click: https://drive.google.com/file/d/14xFgiBxLbLPSodZpYv1EzIsHAlQ1ZmhP/view, WiFi App: https://drive.google.com/file/d/1kB-O6AWmP5wsVajkOHbJEzqSaDQx6fmo/edit, NT-Com 3G Click: https://drive.google.com/file/d/1T8Hd2nkXKNBUUaVMz2Yk03T_ZhI0qUJ2/view, NT-A2K8/4NG TCP: https://drive.google.com/file/d/1hAPNCb2HnhniHpf8M6I1R0t2kiJjtlNg/edit, WiFi App A2K48: https://drive.google.com/file/d/1bxPDyDix6ZkopIQ8MKhe7LYVBGffgYUv/edit" )
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "escenarios de comunicacion":
+        bot.reply_to(message, "Posibilidades de configuración para distintos usos del comunicador: https://drive.google.com/file/d/116Ps83R-ISTB-DQ25J35Jj_b1Oo705tB/view")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "reenvio de señales a estacion de monitoreo":
+        bot.reply_to(message, "Información para los centros de monitoreo que trabajen con el escenario 4: https://drive.google.com/file/d/1BjVlWL2fXE9zGrvQ9GUh36zBIJAzpiBV/view")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "firmware protocolo udp":
+        bot.reply_to(message, "NT-Link G/3G: https://drive.google.com/file/d/1fjNDDWUffxd2MtuP3KsP3tu9CzdPzBFG/view, NT-Com 3G: https://drive.google.com/file/d/1wcY4q8Px4Wmhsc7HAj7vEGcteoS_o_b8/edit, IP-COM: https://drive.google.com/file/d/1I40TixpiMaXf0GmoYeCJxW0zsemL7X1y/edit,NT-A2K8/4NG: https://drive.google.com/file/d/1hCxdbdbgD6uT5E5hUi7LmLUfvMhPXjXm/view, NT-SOS HOGAR dedicado: https://drive.google.com/file/d/1FC-p8hg-ptrnCqVw-sIBAvI4VXtE_sjB/view, NT-SOS HOGAR Universal: https://drive.google.com/file/d/1eGlHMs29l3iJ_coNSlvdW3Syw7fCdrY3/view, NT-RRL: https://drive.google.com/file/d/1KnHsyr_W_BE3UOxsmM0ZoK6BNSIK7iLO/view, NT-DI: https://drive.google.com/file/d/10oNZsou6UZU9bQGPNvuSPT7iMwyfQ3SN/view")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    
+    #FICHAS TECNICAS   
+    elif message.text.lower() == "fichas tecnicas":
+        bot.reply_to(message, "NT-BLUE: https://drive.google.com/file/d/1GORXD502OlE6TrnNLpnK9xmVoTwmGwac/edit, NT-CPROG: https://drive.google.com/file/d/1QH-dkHmYG_ZuxByAtCE4AUzOAO9r4YeX/edit")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "instaladores netio":
+        bot.reply_to(message, "Para programar los instaladores Netio se requieren los drivers y el programa único. Descárgalos en el siguiente link: https://drive.google.com/drive/folders/1UbsbN6YTp6o_3W5nstrkcCqvun1EZroq?usp=sharing. Luego mira este video de cómo instalarlo: https://youtu.be/YrieX3WXxt0")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+    elif message.text.lower() == "error 1004":
+        bot.reply_to(message, "El error 1004 significa que se intenta enviar un comando a un comunicador que está esperando una respuesta. Hay que esperar que termine de resolver los comandos anteriores.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+      # Respuesta por defecto si no coincide con ninguna de las específicas
+    else:
+        bot.reply_to(message, "Puedes preguntar de nuevo.")
+        bot.reply_to(message, "El horario de atención de nuestro personal es de lunes a viernes de 09:00 am a 17:00 pm hora Ecuador. Yo estoy 24/7 🤖")
+
+if __name__ == "__main__":
+    bot.polling(none_stop=True)
+ 
